@@ -31,8 +31,14 @@ const Navbar = (props) => {
 				<div className="navcontainer">
 					<Navbutton to="/suggestions" iconid="add_comment"/>
 					<Navbutton to="/playlist" iconid="playlist_add_check"/>
-					{ props.admin ? /* only admin */
+					{ props.library ? /* library perms */
 						<Navbutton to="/library" iconid="library_books"/>
+					: null }
+					{ props.logged ? /* only logged */
+						<Navbutton to="/users" iconid="manage_accounts"/>
+					: null }
+					{ props.schedule ? /* schedule perms */
+						<Navbutton to="/old" iconid="today"/>
 					: null }
 				</div>
 			</nav>	
