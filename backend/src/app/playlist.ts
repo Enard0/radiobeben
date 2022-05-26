@@ -33,6 +33,9 @@ function get_playlist(date: Date, userid?: number): Promise<Playlist[]> {
 function add_to_playlist(day: Date, breaknumber: number, songid: number, userid?: number): Promise<string> {
     return new Promise<string>(async (resolve, reject) => {
         // get date from Date
+	console.log(day);
+        console.log(day.getTimezoneOffset());
+        console.log(new Date())
         let date = jsDatetoSQLDate(day);
 
         // get schedule for that day (will be used soon)
@@ -243,6 +246,7 @@ function add_to_playlist(day: Date, breaknumber: number, songid: number, userid?
         playlist.day = newday;
         playlist.estTime = song_end;
         await playlistTable.save(playlist);
+	console.log(playlist.estTime);
         resolve("done");
     });
 }

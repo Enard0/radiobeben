@@ -304,7 +304,7 @@ function get_songs(userid: number, limit: number, before: number, like: string, 
 function get_authors(limit: number, before: number, like: string): Promise<Author[]> {
     return new Promise<Author[]>(async (resolve) => {
         let authorTable = getRepository(Author);
-        resolve(await authorTable.find({ where: [{ displayName: Like(`%${like}%`) }], skip: before, take: limit }));
+        resolve(await authorTable.find({ order: {displayName: "ASC"}, where: [{ displayName: Like(`%${like}%`) }], skip: before, take: limit }));
     })
 }
 

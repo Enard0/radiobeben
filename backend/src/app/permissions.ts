@@ -67,7 +67,7 @@ export function permission_middleware(what: permissions) {
 
 
 export function login_middleware(req: Request, res: Response, next) {
-    if (req.session.userid) {
+    if (req.session.userid || req.session.userid === 0) {
         next();
     } else {
         res.sendStatus(401);
