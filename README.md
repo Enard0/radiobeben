@@ -1,6 +1,5 @@
 App in React and Typescript for scheduling music written with school local radio in mind.
 Inspired by https://github.com/etiaro/LocalRadio
-test
 
 # How to set-up for development
 dependencies:  
