@@ -140,10 +140,10 @@ export class SuggestionPopup extends React.Component {
             <div>
                 <form onSubmit={this.props.handleSubmit}>
                     <label className="textbox-smool-left">Od:
-                        <input onChange={this.handleTimeChange} defaultValue="0.00" className="textbox2" type="text" name="start" />
+                        <input onBlur={this.handleTimeChange} defaultValue="0.00" className="textbox2" type="text" name="start" />
                     </label>
                     <label className="textbox-smool-right">Do:
-                        <input onChange={this.handleTimeChange} defaultValue="0.00" className="textbox2" type="text" name="end" />
+                        <input onBlur={this.handleTimeChange} defaultValue="0.00" className="textbox2" type="text" name="end" />
                     </label>
                     <input onChange={this.handleChange} defaultValue={this.props.name} className="textbox2" type="text" name="name" />
                     <div>{this.state.error}</div>
