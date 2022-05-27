@@ -120,6 +120,13 @@ export class SuggestionPopup extends React.Component {
             this.setState({ error: "Musisz podać nazwę utworu!" });
         }
     }
+    
+    handleTimeChange = (event) => {
+        const name = event.target.value;
+        if (name.length = 0) {
+            event.target.value="0.00"
+        }
+    }
 
     handleKeypress = (e) => {
         let code = e.charCode;
@@ -132,8 +139,12 @@ export class SuggestionPopup extends React.Component {
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit}>
-                    <input onChange={this.handleChange} defaultValue="0.00" className="textbox2-smool" type="text" name="start" />
-                    <input onChange={this.handleChange} defaultValue="0.00" className="textbox2-smool" type="text" name="end" />
+                    <label className="textbox-smool-left">Od:
+                        <input onChange={this.handleTimeChange} defaultValue="0.00" className="textbox2" type="text" name="start" />
+                    </label>
+                    <label className="textbox-smool-right">Do:
+                        <input onChange={this.handleTimeChange} defaultValue="0.00" className="textbox2" type="text" name="end" />
+                    </label>
                     <input onChange={this.handleChange} defaultValue={this.props.name} className="textbox2" type="text" name="name" />
                     <div>{this.state.error}</div>
                     <AuthorsPickable author={this.props.author} />
