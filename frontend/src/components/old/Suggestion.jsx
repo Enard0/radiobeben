@@ -132,6 +132,8 @@ export class SuggestionPopup extends React.Component {
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit}>
+                    <input onChange={this.handleChange} defaultValue="0.00" className="textbox2-smool" type="text" name="start" />
+                    <input onChange={this.handleChange} defaultValue="0.00" className="textbox2-smool" type="text" name="end" />
                     <input onChange={this.handleChange} defaultValue={this.props.name} className="textbox2" type="text" name="name" />
                     <div>{this.state.error}</div>
                     <AuthorsPickable author={this.props.author} />
