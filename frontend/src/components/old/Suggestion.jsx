@@ -150,6 +150,7 @@ export class SuggestionPopup extends React.Component {
             } else  {
                 this.setState({ TimeError: "" });
             }
+        }
     }
 
     handleKeypress = (e) => {
