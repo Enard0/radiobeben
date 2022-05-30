@@ -103,7 +103,7 @@ function find_add_author(author: string | number): Promise<Author> {
     });
 }
 
-function accept_suggestion(id: number, name?: string, author?: string | number): Promise<string> {
+function accept_suggestion(id: number, name?: string, author?: string | number, from?: number, to?: number): Promise<string> {
     return new Promise<string>(async (resolve, reject) => {
         let suggesionTable = getRepository(Suggestion);
         let to_accept = await suggesionTable.findOne(id);
@@ -123,6 +123,8 @@ function accept_suggestion(id: number, name?: string, author?: string | number):
                         catch (err) {
                             reject(err);
                         }
+                        song.start=from;
+                        song.end=to;
                         song.duration = to_accept.duration;
                         song.filename = new_name;
                         song.ytid = to_accept.ytid;

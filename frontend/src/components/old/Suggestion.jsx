@@ -40,6 +40,11 @@ class Suggestion extends React.Component {
         }
     }
 
+    mmss_to_sec(mmss){
+        var time = mmss.split(':');
+        return (+time[0]*60)+(+time[1]);
+    }
+
     handleSubmitPopup = async (event) => {
         event.preventDefault();
         if (event.target.name.value && event.target.author.value) {
@@ -47,6 +52,8 @@ class Suggestion extends React.Component {
                 id: this.props.id,
                 name: event.target.name.value,
                 author: event.target.author.value,
+                from: mmss_to_sec(event.target.from.value),
+                to: mmss_to_sec(event.target.to.value),
                 status: 1
             };
             const r = await fetch('/api/songs/suggestions', {
@@ -122,13 +129,22 @@ export class SuggestionPopup extends React.Component {
         }
     }
     
-    handleTimeChange = (event) => {
+    handleTimeSet = (event) => {
         const val = event.target.value;
         if (val.length == 0) {
-            if(event.target.name=="from"){
-                event.target.value="0:00"
-            }else{
-                event.target.value=new Date(this.props.duration * 1000).toISOString().substring(14, 19)
+            if (event.target.name == "from"){
+                event.target.value = "0:00"
+            } else {
+                event.target.value = new Date(this.props.duration * 1000).toISOString().substring(14, 19)
+            }
+        } else if (event.target.name == "to"){
+            var time = val.split(':');
+            var secs = time.length == 2? (+time[0]*60)+(+time[1]) : -1
+            if (secs > this.props.duration){
+                this.setState({ TimeError: "Czas zakończenia nie może być wiekszy niż długość utworu!" });
+                event.target.value = new Date(this.props.duration * 1000).toISOString().substring(14, 19)
+            } else if (secs == -1){
+                this.setState({ TimeError: "Czas musi być w formie MM:SS" });
             }
         }
     }
@@ -145,11 +161,12 @@ export class SuggestionPopup extends React.Component {
             <div>
                 <form onSubmit={this.props.handleSubmit}>
                     <label className="textbox-smool-left">Od:
-                        <input onBlur={this.handleTimeChange} defaultValue="0:00" className="textbox2" type="text" name="from" />
+                        <input onBlur={this.handleTimeSet} defaultValue="0:00" className="textbox2" type="text" name="from" />
                     </label>
                     <label className="textbox-smool-right">Do:
-                        <input onBlur={this.handleTimeChange} defaultValue={new Date(this.props.duration * 1000).toISOString().substring(14, 19)} className="textbox2" type="text" name="end" />
+                        <input onBlur={this.handleTimeSet} defaultValue={new Date(this.props.duration * 1000).toISOString().substring(14, 19)} className="textbox2" type="text" name="to" />
                     </label>
+                    <div>{this.state.TimeError}</div>
                     <input onChange={this.handleChange} defaultValue={this.props.name} className="textbox2" type="text" name="name" />
                     <div>{this.state.error}</div>
                     <AuthorsPickable author={this.props.author} />

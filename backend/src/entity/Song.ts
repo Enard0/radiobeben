@@ -24,6 +24,12 @@ export class Song {
     @Column()
     duration: number;
 
+    @Column()
+    start: number;
+    
+    @Column()
+    end: number;
+
     @Column({ default: false })
     isPrivate: boolean;
 

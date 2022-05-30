@@ -37,7 +37,7 @@ router.get("/suggestions", function (req: Request, res: Response) {
 router.put("/suggestions", login_middleware, permission_middleware(permissions.suggestions), function (req: Request, res: Response) {
     if (req.body.status && req.body.id) {
         if (req.body.status == 1) {
-            accept_suggestion(req.body.id, req.body.name, req.body.author)
+            accept_suggestion(req.body.id, req.body.name, req.body.author, req.body.from, req.body.to)
                 .then(result => {
                     res.send(result);
                 })
