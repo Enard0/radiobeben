@@ -52,8 +52,8 @@ class Suggestion extends React.Component {
                 id: this.props.id,
                 name: event.target.name.value,
                 author: event.target.author.value,
-                from: mmss_to_sec(event.target.from.value),
-                to: mmss_to_sec(event.target.to.value),
+                from: this.mmss_to_sec(event.target.from.value),
+                to: this.mmss_to_sec(event.target.to.value),
                 status: 1
             };
             const r = await fetch('/api/songs/suggestions', {
