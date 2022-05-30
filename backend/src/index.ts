@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-  secret: 'zyciemnieniep1uskilkal0sowyhzn4k0w',
+  secret: 'noOgolnieToFuckupPoszed1CommitnolemDoGithuba222000wiecno',
   store: new FileStore(),
   resave: false,
   saveUninitialized: true
