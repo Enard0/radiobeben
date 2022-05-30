@@ -123,6 +123,7 @@ export class SuggestionPopup extends React.Component {
     }
     
     handleTimeChange = (event) => {
+<<<<<<< HEAD
         const val = event.target.value;
         if (val.length == 0) {
             if(event.target.name=="from"){
@@ -130,6 +131,11 @@ export class SuggestionPopup extends React.Component {
             }else{
                 event.target.value=new Date(this.props.duration * 1000).toISOString().substring(14, 19)
             }
+=======
+        const name = event.target.value;
+        if (name.length == 0) {
+            event.target.value="0:00"
+>>>>>>> fbd759a4c434faccd1c9b9965ceab06d91063b3c
         }
     }
 
