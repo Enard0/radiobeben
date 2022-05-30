@@ -112,6 +112,8 @@ class Song extends React.Component {
                         name={this.props.title}
                         author={this.props.author}
                         sendNotification={this.props.sendNotification}
+                        start={this.props.start}
+                        end={this.props.end}
                     />
                 </div> : null }
             </div>
@@ -203,6 +205,8 @@ export default class Library extends React.Component {
                 refresh={this.loadData}
                 key={i.id}
                 duration={i.duration}
+                start={i.start}
+                end={i.end}
             />)
         }
 

@@ -82,6 +82,8 @@ class Suggestion extends React.Component {
                 done={this.whenAccepted}
                 sendNotification={this.props.sendNotification}
                 duration={this.props.duration}
+                end={this.props.duration}
+                start={0}
             />
         });
     }
@@ -161,10 +163,10 @@ export class SuggestionPopup extends React.Component {
             <div>
                 <form onSubmit={this.props.handleSubmit}>
                     <label className="textbox-smool-left">Od:
-                        <input onBlur={this.handleTimeSet} defaultValue="0:00" className="textbox2" type="text" name="from" />
+                        <input onBlur={this.handleTimeSet} defaultValue={new Date(this.props.start * 1000).toISOString().substring(14, 19)} className="textbox2" type="text" name="from" />
                     </label>
                     <label className="textbox-smool-right">Do:
-                        <input onBlur={this.handleTimeSet} defaultValue={new Date(this.props.duration * 1000).toISOString().substring(14, 19)} className="textbox2" type="text" name="to" />
+                        <input onBlur={this.handleTimeSet} defaultValue={new Date(this.props.end * 1000).toISOString().substring(14, 19)} className="textbox2" type="text" name="to" />
                     </label>
                     <div>{this.state.TimeError}</div>
                     <input onChange={this.handleChange} defaultValue={this.props.name} className="textbox2" type="text" name="name" />
