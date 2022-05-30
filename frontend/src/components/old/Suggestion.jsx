@@ -124,7 +124,7 @@ export class SuggestionPopup extends React.Component {
     handleTimeChange = (event) => {
         const name = event.target.value;
         if (name.length == 0) {
-            event.target.value="0.00"
+            event.target.value="0:00"
         }
     }
 
