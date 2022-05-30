@@ -74,6 +74,7 @@ class Suggestion extends React.Component {
                 author={this.props.author}
                 done={this.whenAccepted}
                 sendNotification={this.props.sendNotification}
+                duration={this.props.duration}
             />
         });
     }
@@ -122,9 +123,19 @@ export class SuggestionPopup extends React.Component {
     }
     
     handleTimeChange = (event) => {
+<<<<<<< HEAD
+        const val = event.target.value;
+        if (val.length == 0) {
+            if(event.target.name=="from"){
+                event.target.value="0:00"
+            }else{
+                event.target.value=new Date(this.props.duration * 1000).toISOString().substring(14, 19)
+            }
+=======
         const name = event.target.value;
         if (name.length == 0) {
-            event.target.value="0.00"
+            event.target.value="0:00"
+>>>>>>> fbd759a4c434faccd1c9b9965ceab06d91063b3c
         }
     }
 
@@ -140,10 +151,10 @@ export class SuggestionPopup extends React.Component {
             <div>
                 <form onSubmit={this.props.handleSubmit}>
                     <label className="textbox-smool-left">Od:
-                        <input onBlur={this.handleTimeChange} defaultValue="0.00" className="textbox2" type="text" name="start" />
+                        <input onBlur={this.handleTimeChange} defaultValue="0:00" className="textbox2" type="text" name="from" />
                     </label>
                     <label className="textbox-smool-right">Do:
-                        <input onBlur={this.handleTimeChange} defaultValue="0.00" className="textbox2" type="text" name="end" />
+                        <input onBlur={this.handleTimeChange} defaultValue={new Date(this.props.duration * 1000).toISOString().substring(14, 19)} className="textbox2" type="text" name="end" />
                     </label>
                     <input onChange={this.handleChange} defaultValue={this.props.name} className="textbox2" type="text" name="name" />
                     <div>{this.state.error}</div>
@@ -256,6 +267,7 @@ export default class Suggestions extends React.Component {
                 refresh={this.loadData}
                 admin={this.state.admin}
                 sendNotification={this.props.sendNotification}
+                duration={i.duration}
             />);
 
         };
