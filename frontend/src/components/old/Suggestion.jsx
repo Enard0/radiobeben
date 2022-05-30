@@ -147,8 +147,9 @@ export class SuggestionPopup extends React.Component {
                 event.target.value = new Date(this.props.duration * 1000).toISOString().substring(14, 19)
             } else if (secs == -1){
                 this.setState({ TimeError: "Czas musi być w formie MM:SS" });
+            } else  {
+                this.setState({ TimeError: "" });
             }
-        }
     }
 
     handleKeypress = (e) => {
