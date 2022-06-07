@@ -24,10 +24,10 @@ export class Song {
     @Column()
     duration: number;
 
-    @Column()
+    @Column({ default: 0 })
     start: number;
     
-    @Column()
+    @Column({ default: 0 })
     end: number;
 
     @Column({ default: false })
