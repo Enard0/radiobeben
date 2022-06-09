@@ -18,7 +18,7 @@ export class Suggestion {
     @Column()
     duration: number;
 
-    @Column()
+    @Column({type: 'bigint'})
     views: number;
 
     @Column({default: 0})
