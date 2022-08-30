@@ -2,7 +2,6 @@ import "../css/styles.css";
 import Navbutton from "./Navbutton";
 import { withRouter } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Logout from "./old/Logout.jsx";
 
 const Navbar = (props) => {
 
@@ -40,9 +39,6 @@ const Navbar = (props) => {
 					: null }
 					{ props.schedule ? /* schedule perms */
 						<Navbutton to="/old" iconid="today"/>
-					: null }
-					{this.state.permissions ? /* only logged */
-						<Logout logout={this.loggedOut}/> 
 					: null }
 				</div>
 			</nav>	
