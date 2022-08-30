@@ -40,6 +40,9 @@ const Navbar = (props) => {
 					{ props.schedule ? /* schedule perms */
 						<Navbutton to="/old" iconid="today"/>
 					: null }
+					{this.state.permissions ? /* only logged */
+						<Logout logout={this.loggedOut}/> 
+					: null }
 				</div>
 			</nav>	
 		</div>
