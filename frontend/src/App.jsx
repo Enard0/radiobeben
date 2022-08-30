@@ -83,7 +83,7 @@ export default class App extends React.Component {
 		return (
 			<Router>
 				<div className="App">
-					<Navbar notification={this.state.notification} logged={this.state.permissions} schedule={this.can(this.permissions.schedule, this.state.permissions)} library={this.can(this.permissions.library, this.state.permissions)}/>
+					<Navbar notification={this.state.notification} onLogout={this.loggedOut} logged={this.state.permissions} schedule={this.can(this.permissions.schedule, this.state.permissions)} library={this.can(this.permissions.library, this.state.permissions)}/>
 					<Switch>
 						<Route exact path="/">
 						<Redirect to="/playlist" />
