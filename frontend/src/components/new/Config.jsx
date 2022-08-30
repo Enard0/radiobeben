@@ -13,8 +13,6 @@ export default class ConfigPanel extends React.Component {
         return (
             <div className="allsuggestionspanel">
                 {this.state.upr_schedule ? <Breakes/> : null}
-                {this.props.schedule}
-                {this.state.upr_schedule}
             </div>
         );
     }
