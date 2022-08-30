@@ -12,6 +12,7 @@ import Amp from "./components/old/Amp.jsx";
 import Library from "./components/old/Library.jsx";
 import AddSong from "./components/old/AddSong.jsx";
 import Users from "./components/old/Users.jsx";
+import ConfigPanel from "./components/new/config.jsx";
 
 export default class App extends React.Component {
 	constructor(props) {
@@ -100,6 +101,9 @@ export default class App extends React.Component {
 						</Route>
 						<Route exact path="/suggestions">
 							<Suggestions sendNotification={this.showNotification} admin={this.can(this.permissions.suggestions, this.state.permissions)} />
+						</Route>
+						<Route exact path="/new">
+							<ConfigPanel upr_amp={this.can(this.permissions.amp, this.state.permissions)}, upr_schedule={this.can(this.permissions.schedule, this.state.permissions)}} />
 						</Route>
 						{this.can(this.permissions.library, this.state.permissions) ? <Route exact path="/library"> <Library sendNotification={this.showNotification}/></Route> : null}
 						{this.can(this.permissions.library, this.state.permissions) ? <Route exact path="/addsong"> <AddSong sendNotification={this.showNotification}/></Route> : null}
