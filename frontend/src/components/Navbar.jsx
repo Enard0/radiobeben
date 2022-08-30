@@ -2,6 +2,7 @@ import "../css/styles.css";
 import Navbutton from "./Navbutton";
 import { withRouter } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Logout from "./components/old/Logout.jsx";
 
 const Navbar = (props) => {
 
