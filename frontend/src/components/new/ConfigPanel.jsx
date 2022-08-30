@@ -14,9 +14,9 @@ class ConfigPanel extends React.Component {
             <div className="allsuggestionspanel">
                 {this.state.upr_schedule ? <Breakes/> : null}
             </div>
-        )
+        );
     }
-}
+};
 
 class Breakes extends React.Component {
     render() {
@@ -24,6 +24,6 @@ class Breakes extends React.Component {
             <div>
                 test
             </div>
-        )
+        );
     }
-}
+};
