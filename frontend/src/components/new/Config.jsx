@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-class ConfigPanel extends React.Component {
+export default class ConfigPanel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

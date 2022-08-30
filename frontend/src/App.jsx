@@ -12,7 +12,7 @@ import Amp from "./components/old/Amp.jsx";
 import Library from "./components/old/Library.jsx";
 import AddSong from "./components/old/AddSong.jsx";
 import Users from "./components/old/Users.jsx";
-import ConfigPanel from "./components/new/ConfigPanel.jsx";
+import ConfigPanel from "./components/new/Config.jsx";
 
 export default class App extends React.Component {
 	constructor(props) {
