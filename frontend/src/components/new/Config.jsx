@@ -31,6 +31,7 @@ class Preset extends React.Component {
 
     render() {
         return (
+            <div>
             <div className="preset">
                 <div className='presetName'>{this.props.preset.name}</div>
                 <div className="navcontainer">
@@ -39,7 +40,7 @@ class Preset extends React.Component {
                 </div>
             </div>
                 {this.state.config ? <PresetConfig Breakes={this.props.preset.breaketimesJSON}/> : null}
-            
+            </div>
         );
     }
 }
