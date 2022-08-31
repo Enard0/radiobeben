@@ -70,11 +70,10 @@ class BreakesTime extends React.Component {
         return (
             <div class="times">
                 <div class="start">
-
+                    start
                 </div>
                 <div class="end">
-                    <div class="hour">{this.props.time.end.hour}</div>
-
+                    end
                 </div>
             </div>
         )
