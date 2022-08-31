@@ -3,18 +3,11 @@ import Navbutton from "../Navbutton";
 
 
 export default class ConfigPanel extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            upr_schedule: props.schedule,
-            upr_amp: props.amp
-        };
-    }
     render() {
         return (
             <div className="allsuggestionspanel">
                 <div className="divider" ></div>
-                {this.state.upr_schedule ? <Breakes/> : null}
+                {this.props.schedule ? <Breakes/> : null}
                 <div className="divider" ></div>
             </div>
         );
@@ -120,7 +113,7 @@ class Breakes extends React.Component {
         let toRender = [];
         if (this.state.fetched) {
             for (let i = 0; i < this.state.presets.length; i++) {
-                toRender.push(<Preset Sname={this.state.presets[i].name}/>)
+                toRender.push(<Preset sName={this.state.presets[i].name}/>)
             }
                 
         }
