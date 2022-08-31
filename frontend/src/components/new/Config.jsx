@@ -93,7 +93,6 @@ class Breakes extends React.Component {
         let toRender = [];
         if (this.state.fetched) {
             this.state.presets.forEach(test = (item,index) => {toRender.push(item)})
-                let weekday = (i + 1) % 7; // js bad, sunday is 0
                 
         }
         return (
