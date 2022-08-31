@@ -54,8 +54,7 @@ class PresetConfig extends React.Component {
             toRender.push(<BreakesTime time={this.props.Breakes[i]}/>)
         }
         return (
-            <div class="presetconfig">
-                <div class="test">{this.state.Breakes.length}</div>
+            <div>
                 {toRender}
             </div>
         )
@@ -71,12 +70,11 @@ class BreakesTime extends React.Component {
         return (
             <div class="times">
                 <div class="start">
-                    <div class="hour">{this.props.time.start.hour}</div>
-                    <div class="minute">{this.props.time.start.minutes}</div>
+
                 </div>
                 <div class="end">
                     <div class="hour">{this.props.time.end.hour}</div>
-                    <div class="minute">{this.props.time.end.minutes}</div>
+
                 </div>
             </div>
         )
