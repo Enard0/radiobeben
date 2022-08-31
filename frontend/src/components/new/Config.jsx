@@ -93,12 +93,12 @@ class Breakes extends React.Component {
     render() {
         const days = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
         let toRender = [];
-        //if (this.state.fetched) {
-        //    for (let i = 0; i < this.state.presets.length; i++) {
-        //        toRender.push(<div>{this.state.presets[i].name}</div>)
-        //    }
-        //        
-        //}
+        if (this.state.fetched) {
+            for (let i = 0; i < this.state.presets.length; i++) {
+                toRender.push(<div>{this.state.presets[i].name}</div>)
+            }
+                
+        }
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
