@@ -37,7 +37,7 @@ class Preset extends React.Component {
                     <div> <Navbutton onClick={this.deleteMe} iconid="delete" small={1} /> </div>
                     <div> <Navbutton onClick={this.openConfig} iconid="settings" small={1} /> </div>
                 </div>
-                {this.state.config ? <div>{this.props.preset.breaketimesJSON}</div> : null}
+                {this.state.config ? <div>{this.props.preset.breaketimesJSON[0].end.hour}</div> : null}
             </div>
         );
     }
