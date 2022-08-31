@@ -92,18 +92,9 @@ class Breakes extends React.Component {
         const days = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
         let toRender = [];
         if (this.state.fetched) {
-            for (let i = 0; i < 7; i++) {
+            this.state.presets.forEach(test = (item,index) => {toRender.push(item)})
                 let weekday = (i + 1) % 7; // js bad, sunday is 0
-                toRender.push(<Weekday
-                    key={i}
-                    number={i}
-                    visibility={this.state.data[weekday].visibility}
-                    enabled={this.state.data[weekday].isEnabled}
-                    name={days[i]}
-                    breaketime={this.state.data[weekday].breaketime ? this.state.data[weekday].breaketime.id : null}
-                    presets={this.state.presets}
-                />)
-            }
+                
         }
         return (
             <div>
