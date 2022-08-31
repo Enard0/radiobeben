@@ -37,7 +37,7 @@ class Preset extends React.Component {
                     <div> <Navbutton onClick={this.deleteMe} iconid="delete" small={1} /> </div>
                     <div> <Navbutton onClick={this.openConfig} iconid="settings" small={1} /> </div>
                 </div>
-                {this.state.config ? <div>a</div>: null}//<PresetConfig Breakes={this.props.preset.breaketimesJSON}/> : null}
+                {this.state.config ? <PresetConfig/> : null}
             </div>
         );
     }
@@ -50,7 +50,7 @@ class PresetConfig extends React.Component {
 
     render() {
         let toRender = [];
-        for (let i = 0; i < this.state.Breakes.length; i++) {
+        for (let i = 0; i < 5; i++) {
             toRender.push(i);//<BreakesTime time={this.props.Breakes[i]}/>)
         }
         return (
