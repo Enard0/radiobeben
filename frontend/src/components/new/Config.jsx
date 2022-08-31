@@ -25,8 +25,7 @@ class Preset extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sName: props.sName,
-            select: props.select
+            select: false
         }
 
     }
@@ -38,7 +37,7 @@ class Preset extends React.Component {
     render() {
         return (
             <div className="preset">
-                <div className='presetName'>{this.state.sName}</div>
+                <div className='presetName'>{this.props.sName}</div>
                 <div> <Navbutton onClick={this.openConfig} iconid="settings" small={1} /> </div>
                 {this.state.config ? <div>CONFIG</div> : null}
             </div>
@@ -121,7 +120,7 @@ class Breakes extends React.Component {
         let toRender = [];
         if (this.state.fetched) {
             for (let i = 0; i < this.state.presets.length; i++) {
-                toRender.push(<Preset Sname={this.state.presets[i].name} select={false}/>)
+                toRender.push(<Preset Sname={this.state.presets[i].name}/>)
             }
                 
         }
