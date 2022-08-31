@@ -25,8 +25,8 @@ class Preset extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sName=props.sName,
-            select=props.select
+            sName: props.sName,
+            select: props.select
         }
 
     }
