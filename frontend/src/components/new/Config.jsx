@@ -32,17 +32,24 @@ class Preset extends React.Component {
     render() {
         return (
             <div className="preset">
-                <div className='presetName'>{this.props.sName}</div>
+                <div className='presetName'>{this.props.name}</div>
                 <div className="navcontainer">
                     <div> <Navbutton onClick={this.deleteMe} iconid="delete" small={1} /> </div>
                     <div> <Navbutton onClick={this.openConfig} iconid="settings" small={1} /> </div>
                 </div>
-                {this.state.config ? <div>CONFIG</div> : null}
+                {this.state.config ? <div>{this.props.breaketimesJSON}</div> : null}
             </div>
         );
     }
 }
 
+//class PresetConfig extends React.Component {
+//    render() {
+//        return (
+//
+//        );
+//    }
+//}
 class Breakes extends React.Component {
     constructor(props) {
         super(props);
@@ -118,7 +125,7 @@ class Breakes extends React.Component {
         let toRender = [];
         if (this.state.fetched) {
             for (let i = 0; i < this.state.presets.length; i++) {
-                toRender.push(<Preset sName={this.state.presets[i].name}/>)
+                toRender.push(<Preset preset={this.state.presets[i]}/>)
             }
                 
         }
