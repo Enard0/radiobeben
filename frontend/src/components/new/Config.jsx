@@ -32,12 +32,12 @@ class Preset extends React.Component {
     render() {
         return (
             <div className="preset">
-                <div className='presetName'>{this.props.name}</div>
+                <div className='presetName'>{this.props.preset.name}</div>
                 <div className="navcontainer">
                     <div> <Navbutton onClick={this.deleteMe} iconid="delete" small={1} /> </div>
                     <div> <Navbutton onClick={this.openConfig} iconid="settings" small={1} /> </div>
                 </div>
-                {this.state.config ? <div>{this.props.breaketimesJSON}</div> : null}
+                {this.state.config ? <div>{this.props.preset.breaketimesJSON}</div> : null}
             </div>
         );
     }
