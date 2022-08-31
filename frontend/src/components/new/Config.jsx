@@ -51,9 +51,10 @@ class PresetConfig extends React.Component {
     render() {
         let toRender = [];
         var key;
-        for (key in this.state.Breakes) {
-            toRender.push("1");//<BreakesTime time={this.props.Breakes[i]}/>)
-        }
+        console.log(Object.keys(this.state.Breakes));
+        //for (key in this.state.Breakes) {
+        //    toRender.push("1");//<BreakesTime time={this.props.Breakes[i]}/>)
+        //}
         return (
             <div>
                 {toRender}
