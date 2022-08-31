@@ -55,7 +55,7 @@ class PresetConfig extends React.Component {
         }
         return (
             <div>
-                {toRender}
+                a
             </div>
         )
     }
