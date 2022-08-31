@@ -27,11 +27,16 @@ class Preset extends React.Component {
         this.setState({ config: !this.state.config });
     }
 
+    deleteMe = () => {}
+
     render() {
         return (
             <div className="preset">
                 <div className='presetName'>{this.props.sName}</div>
-                <div> <Navbutton onClick={this.openConfig} iconid="settings" small={1} /> </div>
+                <div className="navcontainer">
+                    <div> <Navbutton onClick={this.deleteMe} iconid="delete" small={1} /> </div>
+                    <div> <Navbutton onClick={this.openConfig} iconid="settings" small={1} /> </div>
+                </div>
                 {this.state.config ? <div>CONFIG</div> : null}
             </div>
         );
