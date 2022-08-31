@@ -37,19 +37,51 @@ class Preset extends React.Component {
                     <div> <Navbutton onClick={this.deleteMe} iconid="delete" small={1} /> </div>
                     <div> <Navbutton onClick={this.openConfig} iconid="settings" small={1} /> </div>
                 </div>
-                {this.state.config ? <div>{this.props.preset.breaketimesJSON[0].end.hour}</div> : null}
+                {this.state.config ? <PresetConfig Breakes={this.props.preset.breaketimesJSON}/> : null}
             </div>
         );
     }
 }
 
-//class PresetConfig extends React.Component {
-//    render() {
-//        return (
-//
-//        );
-//    }
-//}
+class PresetConfig extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        let toRender = [];
+        for (let i = 0; i < this.state.Breakes.length; i++) {
+            toRender.push(<BreakesTime time={this.state.Breakes[i]}/>)
+        }
+        return (
+            <div>
+                {toRender}
+            </div>
+        )
+    }
+}
+
+class BreakesTime extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div class="times">
+                <div class="start">
+                    <div class="hour">{props.start.hour}</div>
+                    <div class="minute">{props.start.minutes}</div>
+                </div>
+                <div class="end">
+                    <div class="hour">{props.end.hour}</div>
+                    <div class="minute">{props.end.minutes}</div>
+                </div>
+            </div>
+        )
+    }
+}
+
 class Breakes extends React.Component {
     constructor(props) {
         super(props);
@@ -121,7 +153,6 @@ class Breakes extends React.Component {
     }
 
     render() {
-        const days = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
         let toRender = [];
         if (this.state.fetched) {
             for (let i = 0; i < this.state.presets.length; i++) {
