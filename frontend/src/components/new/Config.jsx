@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbutton from "../Navbutton";
 
 
 export default class ConfigPanel extends React.Component {
@@ -12,13 +13,38 @@ export default class ConfigPanel extends React.Component {
     render() {
         return (
             <div className="allsuggestionspanel">
+                <div className="divider" ></div>
                 {this.state.upr_schedule ? <Breakes/> : null}
-                Test
-                {this.state.upr_schedule ? <div>test2</div> : null}
+                <div className="divider" ></div>
             </div>
         );
     }
 };
+
+class Preset extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            sName=props.sName,
+            select=props.select
+        }
+
+    }
+
+    openConfig = () => {
+        this.setState({ config: !this.state.config });
+    }
+
+    render() {
+        return (
+            <div className="preset">
+                <div className='presetName'>{this.state.sName}</div>
+                <div> <Navbutton onClick={this.openConfig} iconid="settings" small={1} /> </div>
+                {this.state.config ? <div>CONFIG</div> : null}
+            </div>
+        );
+    }
+}
 
 class Breakes extends React.Component {
     constructor(props) {
@@ -95,7 +121,7 @@ class Breakes extends React.Component {
         let toRender = [];
         if (this.state.fetched) {
             for (let i = 0; i < this.state.presets.length; i++) {
-                toRender.push(<div>{this.state.presets[i].name}</div>)
+                toRender.push(<Preset Sname={this.state.presets[i].name} select={false}/>)
             }
                 
         }
