@@ -92,7 +92,9 @@ class Breakes extends React.Component {
         const days = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
         let toRender = [];
         if (this.state.fetched) {
-            this.state.presets.forEach(test = (item,index) => {toRender.push(item)})
+            for (let i = 0; i < this.state.presets.length; i++) {
+                toRender.push(<div>{this.state.presets[i].name}</div>)
+            }
                 
         }
         return (
