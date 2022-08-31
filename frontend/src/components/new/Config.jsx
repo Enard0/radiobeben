@@ -14,7 +14,7 @@ export default class ConfigPanel extends React.Component {
             <div className="allsuggestionspanel">
                 {this.state.upr_schedule ? <Breakes/> : null}
                 Test
-                {this.state.upr_schedule ? test2 : null}
+                {this.state.upr_schedule ? <div>test2</div> : null}
             </div>
         );
     }
