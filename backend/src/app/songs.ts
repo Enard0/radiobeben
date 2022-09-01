@@ -133,7 +133,7 @@ function accept_suggestion(id: number, name?: string, author?: string | number, 
                         .catch(err => {
                             reject(err);
                         });
-                    suggesionTable.update(id, { status: 1 });
+                    //suggesionTable.update(id, { status: 1 });
                     resolve("Piosenka została dodana!");
                 } else {
                     reject("Sugestia już była rozpatrzona!");
