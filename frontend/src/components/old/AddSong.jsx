@@ -50,6 +50,7 @@ class AddSongPopup extends React.Component {
             });
             if (r.ok) {
                 this.props.sendNotification("Pobieranie piosenki rozpoczęte!", 8000);
+                this.props.sendNotification(await r.text(), 8000);
                 this.props.back();
             } else {
                 this.props.sendNotification(await r.text(), 8000);
