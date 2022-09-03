@@ -2,7 +2,6 @@ import { Brackets, getRepository, LessThan, Like, MoreThan } from "typeorm";
 import { Suggestion } from "../entity/Suggestion";
 import * as yts from "yt-search"
 import { Song } from "../entity/Song";
-import { Test } from "../entity/Test";
 import { SongManager } from "../player/songs";
 import { can, permissions } from "./permissions";
 import { Author } from "../entity/Author";
