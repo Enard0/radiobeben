@@ -2,6 +2,7 @@ import { Brackets, getRepository, LessThan, Like, MoreThan } from "typeorm";
 import { Suggestion } from "../entity/Suggestion";
 import * as yts from "yt-search"
 import { Song } from "../entity/Song";
+import { Test } from "../entity/Test";
 import { SongManager } from "../player/songs";
 import { can, permissions } from "./permissions";
 import { Author } from "../entity/Author";
@@ -133,7 +134,7 @@ function accept_suggestion(id: number, name?: string, author?: string | number, 
                         .catch(err => {
                             reject(err);
                         });
-                    //suggesionTable.update(id, { status: 1 });
+                    suggesionTable.update(id, { status: 1 });
                     resolve("Piosenka została dodana!");
                 } else {
                     reject("Sugestia już była rozpatrzona!");
