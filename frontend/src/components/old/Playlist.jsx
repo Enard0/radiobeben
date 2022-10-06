@@ -290,7 +290,7 @@ export default class Playlist extends React.Component {
 
     render() {
         return (
-            <div className="content" style={{ height:height}}>
+            <div className="content">
                 <Styls/>
                 <div className="header" ref={this.container} style={ this.state.popup ? {visibility: 'hidden'} : null}>
                     <div className="datecontainer">
