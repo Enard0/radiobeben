@@ -27,7 +27,7 @@ body {
 	overflow: hidden;
 }
 
-.App > .content {
+.content {
 	padding: 0px 10px;
 	height: calc(100vh - 110px);
 	overflow-y: auto;
