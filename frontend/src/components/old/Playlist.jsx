@@ -1,32 +1,7 @@
 import React from 'react'
 import Navbutton from '../Navbutton';
 import LibraryPickable from './LibraryPickable';
-// ---getsize---
-import { useState, useEffect } from 'react';
-
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height
-  };
-}
-
-function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return windowDimensions;
-}
-//-------
+import useWindowDimensions from '../new/sizefunc.jsx';
 
 class PlaylistSong extends React.Component {
     constructor(props) {
@@ -308,7 +283,7 @@ export default class Playlist extends React.Component {
     render() {
         const { height, width } = useWindowDimensions();
         return (
-            <div className="content" style={{ height:height-110}}>
+            <div className="content" style={{ height:height}}>
                 <div className="header" ref={this.container} style={ this.state.popup ? {visibility: 'hidden'} : null}>
                     <div className="datecontainer">
                         <input className="dateinput" ref={this.dateinput} type="date" onChange={this.changeDate} value={this.state.date} />
