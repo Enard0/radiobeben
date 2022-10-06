@@ -218,9 +218,11 @@ class Breaks extends React.Component {
 }
 const Styls = () => {
     const { height, width } = useWindowDimensions();
+    var heightz=height-110;
+    var heights= ''+heightz
     return (
         <style>
-            {".content{height:"+height-110+"px};"}
+            {".content{\nheight:"+heights+"px;\n}"}
         </style>
     );
 };
