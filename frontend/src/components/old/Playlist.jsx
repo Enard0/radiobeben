@@ -281,7 +281,7 @@ export default class Playlist extends React.Component {
 
     render() {
         return (
-            <div className="content">
+            <div className="content content2">
                 <div className="header" ref={this.container} style={ this.state.popup ? {visibility: 'hidden'} : null}>
                     <div className="datecontainer">
                         <input className="dateinput" ref={this.dateinput} type="date" onChange={this.changeDate} value={this.state.date} />
