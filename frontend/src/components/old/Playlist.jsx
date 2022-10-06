@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbutton from '../Navbutton';
 import LibraryPickable from './LibraryPickable';
-import useWindowDimensions from '../new/sizefunc.jsx';
 
 class PlaylistSong extends React.Component {
     constructor(props) {
@@ -216,16 +215,6 @@ class Breaks extends React.Component {
         );
     }
 }
-const Styls = () => {
-    const { height, width } = useWindowDimensions();
-    var heightz=height-110;
-    var heights= ''+heightz
-    return (
-        <style>
-            {".content{\nheight:"+heights+"px;\n}"}
-        </style>
-    );
-};
 
 export default class Playlist extends React.Component {
     constructor(props) {
@@ -293,7 +282,6 @@ export default class Playlist extends React.Component {
     render() {
         return (
             <div className="content">
-                <Styls/>
                 <div className="header" ref={this.container} style={ this.state.popup ? {visibility: 'hidden'} : null}>
                     <div className="datecontainer">
                         <input className="dateinput" ref={this.dateinput} type="date" onChange={this.changeDate} value={this.state.date} />

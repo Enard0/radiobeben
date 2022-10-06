@@ -13,6 +13,18 @@ import Library from "./components/old/Library.jsx";
 import AddSong from "./components/old/AddSong.jsx";
 import Users from "./components/old/Users.jsx";
 import ConfigPanel from "./components/new/Config.jsx";
+import useWindowDimensions from './components/new/sizefunc.jsx';
+
+const Styls = () => {
+    const { height, width } = useWindowDimensions();
+    var heightz=height-110;
+    var heights= ''+heightz
+    return (
+        <style>
+            {".content{\nheight:"+heights+"px;\n}"}
+        </style>
+    );
+};
 
 export default class App extends React.Component {
 	constructor(props) {
@@ -83,6 +95,7 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<Router>
+				<Styls/>
 				<div className="App">
 					<Navbar notification={this.state.notification} onLogout={this.loggedOut} logged={this.state.permissions} schedule={this.can(this.permissions.schedule, this.state.permissions)} library={this.can(this.permissions.library, this.state.permissions)}/>
 					<Switch>
