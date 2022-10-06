@@ -289,10 +289,9 @@ export default class Playlist extends React.Component {
     }
 
     render() {
-        const { height, width } = useWindowDimensions();
         return (
             <div className="content" style={{ height:height}}>
-                <styls/>
+                <Styls/>
                 <div className="header" ref={this.container} style={ this.state.popup ? {visibility: 'hidden'} : null}>
                     <div className="datecontainer">
                         <input className="dateinput" ref={this.dateinput} type="date" onChange={this.changeDate} value={this.state.date} />
