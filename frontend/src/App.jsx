@@ -71,7 +71,7 @@ export default class App extends React.Component {
 		this.setState({permissions: 0});
 	}
 
-	playTest = () => {
+	/*playTest = () => {
 		fetch("/api/playlist/play", {
 			method: "PUT",
 			headers: {
@@ -80,7 +80,7 @@ export default class App extends React.Component {
 			body: JSON.stringify({
 				id: 3
 			})});
-	}
+	}*/
 
 	showNotification = (message, time) => {
 		if (this.timeout) {
@@ -107,7 +107,7 @@ export default class App extends React.Component {
 							{this.state.permissions ? <Logout logout={this.loggedOut}/> : <LoginPage loggedIn={this.loggedIn} /> }
 							{this.can(this.permissions.schedule, this.state.permissions) ? <Weekdays /> : null}
 							{this.can(this.permissions.amp, this.state.permissions) ? <Amp/> : null}
-							<button onClick={this.playTest}>Play Test</button>
+							/*<button onClick={this.playTest}>Play Test</button>*/
 						</Route>
 						<Route exact path="/playlist">
 							<Breakes sendNotification={this.showNotification} admin={this.can(this.permissions.playlist, this.state.permissions)}/>
